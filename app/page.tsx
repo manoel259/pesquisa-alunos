@@ -1,14 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
-
-type Aluno = {
-  nome: string
-  sala: string
-  professor: string
-}
+import AlunosClient from './AlunosClient'
 
 export const dynamic = 'force-dynamic'
 
-export default async function Home() {
+export default async function Page() {
   const supabase = createClient(
     process.env.SUPABASE_URL!,
     process.env.SUPABASE_ANON_KEY!
@@ -20,15 +15,8 @@ export default async function Home() {
 
   return (
     <main className="p-8">
-      <h1>Pesquisa de Alunos</h1>
-
-      <ul>
-        {alunos?.map((a, i) => (
-          <li key={i}>
-            {a.nome} – {a.sala} – {a.professor}
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-2xl font-bold mb-4">Pesquisa de Alunos</h1>
+      <AlunosClient alunosIniciais={alunos ?? []} />
     </main>
   )
 }
