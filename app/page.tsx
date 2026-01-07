@@ -1,13 +1,9 @@
-import AlunosClient from './AlunosClient'
-
-export const dynamic = 'force-dynamic'
-
 export default function Page() {
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Pesquisa de Alunos</h1>
-      <AlunosClient />
-    </main>
+    <div style={{ padding: 40 }}>
+      <h1>FUNCIONOU</h1>
+      <input placeholder="Se você vê isso, o App Router está OK" />
+    </div>
   )
 }
 
