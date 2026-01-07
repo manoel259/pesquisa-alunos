@@ -1,10 +1,18 @@
+'use client'
+
 export default function Page() {
   return (
-    <div style={{ padding: 40 }}>
-      <h1>FUNCIONOU</h1>
-      <input placeholder="Se você vê isso, o App Router está OK" />
-    </div>
+    <main style={{ padding: 40 }}>
+      <h1>FUNCIONOU NO SITE DA VERCEL</h1>
+
+      <input
+        placeholder="Campo de busca visível"
+        style={{
+          border: '1px solid black',
+          padding: '8px',
+          marginTop: '12px'
+        }}
+      />
+    </main>
   )
 }
-
-
