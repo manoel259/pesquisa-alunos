@@ -1,5 +1,8 @@
+import './globals.css'
+
 export const metadata = {
   title: 'Pesquisa de Alunos',
+  description: 'Sistema de pesquisa de alunos',
 }
 
 export default function RootLayout({
