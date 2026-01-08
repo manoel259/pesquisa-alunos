@@ -63,13 +63,38 @@ export default function Home() {
       {loading && <p>Carregando...</p>}
       {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
-      <ul>
-        {alunos.map((a, i) => (
-          <li key={i}>
-            {a.nome} – {a.sala} – {a.professor}
-          </li>
-        ))}
-      </ul>
+     {busca && (
+  <table className="border-collapse border w-full mt-4">
+    <thead>
+      <tr className="bg-gray-100">
+        <th className="border p-2 text-left">Nome</th>
+        <th className="border p-2 text-left">Sala</th>
+        <th className="border p-2 text-left">Professor</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {alunos.length > 0 ? (
+        alunos.map((a, i) => (
+          <tr key={i}>
+            <td className="border p-2">{a.nome}</td>
+            <td className="border p-2">{a.sala}</td>
+            <td className="border p-2">{a.professor}</td>
+          </tr>
+        ))
+      ) : (
+        !loading && (
+          <tr>
+            <td colSpan={3} className="border p-2 text-center">
+              Nenhum aluno encontrado
+            </td>
+          </tr>
+        )
+      )}
+    </tbody>
+  </table>
+)}
+
     </main>
   )
 }
