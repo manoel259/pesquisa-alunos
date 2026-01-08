@@ -43,7 +43,8 @@ export default function Home() {
   }
 
   return (
-    <main className="p-8">
+    <main className="min-h-screen flex justify-center">
+    <div className="w-full max-w-3xl p-8">
       <h1 className="text-xl font-bold mb-4">
         Pesquisa de Alunos
       </h1>
