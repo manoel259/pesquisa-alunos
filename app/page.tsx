@@ -14,12 +14,15 @@ export default function Home() {
   const [alunos, setAlunos] = useState<Aluno[]>([])
   const [loading, setLoading] = useState(false)
   const [erro, setErro] = useState<string | null>(null)
+  const [pesquisado, setPesquisado] = useState(false)
 
   async function pesquisar() {
     setErro(null)
+    setPesquisado(true)
 
     if (!busca.trim()) {
       setAlunos([])
+      setLoading(false)
       return
     }
 
@@ -42,7 +45,9 @@ export default function Home() {
 
   return (
     <main className="p-8">
-      <h1 className="text-xl font-bold mb-4">Pesquisa de Alunos</h1>
+      <h1 className="text-xl font-bold mb-4">
+        Pesquisa de Alunos
+      </h1>
 
       <div className="flex gap-2 mb-4">
         <input
@@ -60,44 +65,29 @@ export default function Home() {
         </button>
       </div>
 
-      {loading && <p>Carregando...</p>}
       {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
-      {busca && (
+      {pesquisado && (
         <table className="border-collapse border w-full mt-6">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="border p-2 text-left">Nome</th>
-              <th className="border p-2 text-left">Sala</th>
-              <th className="border p-2 text-left">Professor</th>
+            <tr className="bg-gray-200">
+              <th className="border p-3 text-left">Nome</th>
+              <th className="border p-3 text-left">Sala</th>
+              <th className="border p-3 text-left">Professor</th>
             </tr>
           </thead>
 
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan={3} className="border p-2 text-center">
+                <td colSpan={3} className="border p-3 text-center">
                   Carregando...
                 </td>
               </tr>
             ) : alunos.length > 0 ? (
               alunos.map((aluno, index) => (
-                <tr key={index}>
-                  <td className="border p-2">{aluno.nome}</td>
-                  <td className="border p-2">{aluno.sala}</td>
-                  <td className="border p-2">{aluno.professor}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={3} className="border p-2 text-center">
-                  Nenhum aluno encontrado
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      )}
-    </main>
-  )
-}
+                <tr
+                  key={index}
+                  className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                >
+                  <td cla
