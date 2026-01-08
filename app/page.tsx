@@ -90,4 +90,11 @@ export default function Home() {
                   key={index}
                   className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
                 >
-                  <td cla
+                  <td className="border p-3 font-medium">
+                    {aluno.nome}
+                  </td>
+                  <td className="border p-3">{aluno.sala}</td>
+                  <td className="border p-3">{aluno.professor}</td>
+                </tr>
+              ))
+            ) : (
