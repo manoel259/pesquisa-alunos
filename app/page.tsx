@@ -22,7 +22,6 @@ export default function Home() {
 
     if (!busca.trim()) {
       setAlunos([])
-      setLoading(false)
       return
     }
 
@@ -64,37 +63,3 @@ export default function Home() {
           Pesquisar
         </button>
       </div>
-
-      {erro && <p style={{ color: 'red' }}>{erro}</p>}
-
-      {pesquisado && (
-        <table className="border-collapse border w-full mt-6">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border p-3 text-left">Nome</th>
-              <th className="border p-3 text-left">Sala</th>
-              <th className="border p-3 text-left">Professor</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {loading ? (
-              <tr>
-                <td colSpan={3} className="border p-3 text-center">
-                  Carregando...
-                </td>
-              </tr>
-            ) : alunos.length > 0 ? (
-              alunos.map((aluno, index) => (
-                <tr
-                  key={index}
-                  className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
-                >
-                  <td className="border p-3 font-medium">
-                    {aluno.nome}
-                  </td>
-                  <td className="border p-3">{aluno.sala}</td>
-                  <td className="border p-3">{aluno.professor}</td>
-                </tr>
-              ))
-            ) : (
