@@ -107,6 +107,9 @@ export default function Home() {
           </tbody>
         </table>
       )}
+        </div>
+</main>
+
     </main>
   )
 }
