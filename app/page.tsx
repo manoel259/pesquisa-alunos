@@ -54,7 +54,7 @@ export default function Home() {
 
         {/* TÍTULO */}
         <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Procura Sala
+          Pesquisa de Alunos
         </h1>
 
         {/* BUSCA */}
