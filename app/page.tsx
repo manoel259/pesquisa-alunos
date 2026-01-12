@@ -43,21 +43,21 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen flex justify-center bg-gray-50">
-      <div className="w-full max-w-3xl p-8">
+    <main className="min-h-screen flex justify-center items-start pt-16">
+      <div className="w-full max-w-3xl bg-white p-8 rounded-xl shadow">
         <h1 className="text-2xl font-bold mb-6 text-center">
           Pesquisa de Alunos
         </h1>
 
         <div className="flex gap-2 mb-4">
           <input
-            className="border p-2 flex-1"
+            className="border rounded px-3 py-2 flex-1"
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             placeholder="Digite o nome do aluno"
           />
           <button
-            className="border px-4"
+            className="bg-blue-600 text-white px-4 py-2 rounded"
             onClick={pesquisar}
             disabled={loading}
           >
@@ -68,15 +68,14 @@ export default function Home() {
         {erro && <p className="text-red-600 mb-4">{erro}</p>}
 
         {pesquisado && (
-          <table className="border-collapse border w-full mt-6 bg-white">
+          <table className="w-full border-collapse mt-6">
             <thead>
-              <tr className="bg-gray-200">
+              <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Nome</th>
                 <th className="border p-3 text-left">Sala</th>
                 <th className="border p-3 text-left">Professor</th>
               </tr>
             </thead>
-
             <tbody>
               {loading ? (
                 <tr>
@@ -90,9 +89,7 @@ export default function Home() {
                     key={index}
                     className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
                   >
-                    <td className="border p-3 font-medium">
-                      {aluno.nome}
-                    </td>
+                    <td className="border p-3 font-medium">{aluno.nome}</td>
                     <td className="border p-3">{aluno.sala}</td>
                     <td className="border p-3">{aluno.professor}</td>
                   </tr>
